@@ -5,6 +5,8 @@
  */
 package br.com.asas.kacca.dto;
 
+import java.util.List;
+
 /**
  *
  * @author Alex
@@ -16,6 +18,7 @@ public class Produto {
     private String nome;
     private String descricao;
     private Fabricante fabricante;
+    private List<Fornecedor> fornecedores;
 
     /**
      * @return the codigo
@@ -87,9 +90,16 @@ public class Produto {
         this.fabricante = fabricante;
     }
 
+    public List<Fornecedor> getFornecedores() {
+        return fornecedores;
+    }
+
+    public void setFornecedores(List<Fornecedor> fornecedores) {
+        this.fornecedores = fornecedores;
+    }
+
     @Override
     public String toString() {
-        return "Produto{" + "codigo=" + codigo + ", codigoBarras=" + codigoBarras + ", nome=" + nome + ", descricao=" + descricao + ", fabricante=" + fabricante + '}';
-    }
-    
+        return "Produto{" + "codigo=" + codigo + ", codigoBarras=" + codigoBarras + ", nome=" + nome + ", descricao=" + descricao + ", fabricante=" + fabricante + ", fornecedores=" + fornecedores + '}';
+    }    
 }
