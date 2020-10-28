@@ -13,17 +13,18 @@ import java.util.List;
  */
 public class Venda {
     
-    private Long venda;
+    private Long codigo;
     private List<ItemVenda> itens;
     private Integer quantidadeItens;
     private Float totalVenda;
+    private Cliente cliente;
 
-    public Long getVenda() {
-        return venda;
+    public Long getCodigo() {
+        return codigo;
     }
 
-    public void setVenda(Long venda) {
-        this.venda = venda;
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
     }
 
     public List<ItemVenda> getItens() {
@@ -50,8 +51,16 @@ public class Venda {
         this.totalVenda = totalVenda;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     @Override
     public String toString() {
-        return "Venda{" + "venda=" + venda + ", itens=" + itens + ", quantidadeItens=" + quantidadeItens + ", totalVenda=" + totalVenda + '}';
-    }    
+        return "Venda{" + "codigo=" + codigo + ", itens=" + itens + ", quantidadeItens=" + quantidadeItens + ", totalVenda=" + totalVenda + ", cliente=" + cliente + '}';
+    }
 }
