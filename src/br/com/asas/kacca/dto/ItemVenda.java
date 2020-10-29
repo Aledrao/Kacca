@@ -14,6 +14,7 @@ public class ItemVenda {
     private Integer codigo;
     private Produto produto;
     private float quantidadeVendaItem;
+    private float precoUnitario;
     private float valorTotalVendaItem;
 
     public Integer getCodigo() {
@@ -40,16 +41,21 @@ public class ItemVenda {
         this.quantidadeVendaItem = quantidadeVendaItem;
     }
 
-    public float getValorTotalVendaItem() {
-        return valorTotalVendaItem;
+    public float getPrecoUnitario() {
+        return precoUnitario;
     }
 
-    public void setValorTotalVendaItem(float valorTotalVendaItem) {
-        this.valorTotalVendaItem = valorTotalVendaItem;
+    public void setPrecoUnitario(float precoUnitario) {
+        this.precoUnitario = precoUnitario;
+        this.valorTotalVendaItem = quantidadeVendaItem * precoUnitario;
     }
+
+    public float getValorTotalVendaItem() {
+        return valorTotalVendaItem;
+    }    
 
     @Override
     public String toString() {
-        return "ItemVenda{" + "codigo=" + codigo + ", produto=" + produto + ", quantidadeVendaItem=" + quantidadeVendaItem + ", valorTotalVendaItem=" + valorTotalVendaItem + '}';
-    }    
+        return "ItemVenda{" + "codigo=" + codigo + ", produto=" + produto + ", quantidadeVendaItem=" + quantidadeVendaItem + ", precoUnitario=" + precoUnitario + ", valorTotalVendaItem=" + valorTotalVendaItem + '}';
+    }
 }
