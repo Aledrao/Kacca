@@ -5,36 +5,78 @@
  */
 package br.com.asas.kacca.dto;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Alex
- */
-public class Cliente {
-    private Long codigo;
-    private String nome;
-    private String cpf;
-    private String rg;
-    private String email;
-    private String telefoneFixo;
-    private String celular;
-    private String tipoLogradouro;
-    private String logradouro;
-    private String numeroLogradouro;
-    private String complementoLogradouro;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String cep;
-    private Date dataCadastro;
+ */   
+@Entity
+@Table(name = "CLIENTE")
+public class Cliente implements Serializable {
 
-    public Long getCodigo() {
-        return codigo;
+    private static final long serialVersionUID = -8998560379753525271L;
+    
+    @EmbeddedId
+    private ClienteId id;
+    
+    @Column(name = "NOME", nullable = false)
+    private String nome;
+    
+    @Column(name = "RG", length = 9)
+    private String rg;
+    
+    @Column(name = "EMAIL")
+    private String email;
+    
+    @Column(name = "TELEFONE_FIXO", length = 10)
+    private String telefoneFixo;
+    
+    @Column(name = "CELULAR", length = 11)
+    private String celular;
+    
+    @Column(name = "TIPO_LOGRADOURO")
+    private String tipoLogradouro;
+    
+    @Column(name = "LOGRADOURO")
+    private String logradouro;
+    
+    @Column(name = "NUMERO_LOGRADOURO")
+    private String numeroLogradouro;
+    
+    @Column(name = "COMPLEMENTO_LOGRADOURO")
+    private String complementoLogradouro;
+    
+    @Column(name = "BAIRRO")
+    private String bairro;
+    
+    @Column(name = "CIDADE")
+    private String cidade;
+    
+    @Column(name = "ESTADO")
+    private String estado;
+    
+    @Column(name = "CEP")
+    private String cep;
+    
+    @Temporal(TemporalType.DATE)
+    @Column(name = "DATA_CADASTRO")
+    private Date dataCadastro;    
+
+    public ClienteId getId() {
+        return id;
     }
 
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
+    public void setId(ClienteId id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -43,14 +85,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public String getRg() {
@@ -156,9 +190,9 @@ public class Cliente {
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
-
+    
     @Override
     public String toString() {
-        return "Cliente{" + "codigo=" + codigo + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", email=" + email + ", telefoneFixo=" + telefoneFixo + ", celular=" + celular + ", tipoLogradouro=" + tipoLogradouro + ", logradouro=" + logradouro + ", numeroLogradouro=" + numeroLogradouro + ", complementoLogradouro=" + complementoLogradouro + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep=" + cep + ", cadastro=" + dataCadastro + '}';
+        return "Cliente{" + "id=" + id + ", nome=" + nome + ", rg=" + rg + ", email=" + email + ", telefoneFixo=" + telefoneFixo + ", celular=" + celular + ", tipoLogradouro=" + tipoLogradouro + ", logradouro=" + logradouro + ", numeroLogradouro=" + numeroLogradouro + ", complementoLogradouro=" + complementoLogradouro + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + ", cep=" + cep + ", dataCadastro=" + dataCadastro + '}';
     }
 }
