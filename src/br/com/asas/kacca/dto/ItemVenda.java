@@ -10,6 +10,19 @@ package br.com.asas.kacca.dto;
  * @author Alex
  */
 public class ItemVenda {
+
+    public ItemVenda(Integer codigo, Produto produto, float quantidadeVendaItem, float precoUnitario, float valorTotalVendaItem) {
+        this.codigo = codigo;
+        this.produto = produto;
+        this.quantidadeVendaItem = quantidadeVendaItem;
+        this.precoUnitario = precoUnitario;
+        this.valorTotalVendaItem = valorTotalVendaItem;
+    }
+
+    public ItemVenda() {
+    }
+    
+    
     
     private Integer codigo;
     private Produto produto;

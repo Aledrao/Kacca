@@ -5,18 +5,48 @@
  */
 package br.com.asas.kacca.dto;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Alex
  */
-public class Fornecedor {
+@Entity
+@Table(name = "FORNECEDOR")
+public class Fornecedor implements Serializable {
+
+    private static final long serialVersionUID = 3686580920078631635L;
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_FORNECEDOR")
+    private Integer codigo;
+    
+    @Column(name = "NOME_FORNECEDOR", nullable = false)
     private String nome;
+    
+    @Column(name = "TELEFONE_FIXO")
     private String telefone;
-    private List<Fornecedor> fornecedores;
-    private List<Produto> produtos;
+    
+    @Column(name = "CELULAR")
+    private String celular;
+    
+    private List<Produto> produtos;   
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
 
     public String getNome() {
         return nome;
@@ -34,12 +64,12 @@ public class Fornecedor {
         this.telefone = telefone;
     }
 
-    public List<Fornecedor> getFornecedores() {
-        return fornecedores;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setFornecedores(List<Fornecedor> fornecedores) {
-        this.fornecedores = fornecedores;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public List<Produto> getProdutos() {
@@ -52,6 +82,6 @@ public class Fornecedor {
 
     @Override
     public String toString() {
-        return "Fornecedor{" + "nome=" + nome + ", telefone=" + telefone + ", fornecedores=" + fornecedores + ", produtos=" + produtos + '}';
+        return "Fornecedor{" + "codigo=" + codigo + ", nome=" + nome + ", telefone=" + telefone + ", celular=" + celular + ", produtos=" + produtos + '}';
     }
 }
